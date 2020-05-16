@@ -1,13 +1,13 @@
 .newGame {
     position: absolute;
-    top: 32%;
+    top: 45%;
     right: 0;
     bottom: 0;
     left: 28%;
     width: 40% ;
     height: 40% ;
     margin: 0 0 0 0 ;
-    box-shadow: 0px 0px 100px 100px black;
+    box-shadow: 0px 0px 120px 120px black;
     border-radius: 50px;
     background-color: antiquewhite;
     background-image: url('../../images/newgameback.jpg');
@@ -18,7 +18,7 @@
 
 .winner {
     position: absolute;
-    top: 20%;
+    top: 27%;
     right: 0;
     bottom: 0;
     left: 28%;

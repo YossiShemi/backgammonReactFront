@@ -5,6 +5,7 @@ import Board from '../board/Board';
 import StatusBar from '../statusBar/StatusBar';
 import Outcheckers from '../outcheckers/Outcheckers';
 import NewGame from '../NewGame/NewGame';
+import Menu from '../Menu';
 
 export class Game extends Component {
   
@@ -601,6 +602,9 @@ export class Game extends Component {
                 gameStatus= {this.state.gameStatus}
                 p1IsNext={this.state.p1IsNext}
                 />
+
+                <Menu/>
+
 
                 <div className="gamezone">
                 <Board 
