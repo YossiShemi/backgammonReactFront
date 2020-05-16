@@ -1,6 +1,6 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "cc66a23f22f496256f84f44974a7c5bd",
+    "revision": "11450a398048eb690bf33cf5690153c5",
     "url": "/backgammonReactFront/index.html"
   },
   {
