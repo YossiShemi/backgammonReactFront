@@ -82,15 +82,15 @@
 
   .barPlayerTitle{
     font-size: 15px;
-    margin: 25px 5px 0 1px;
+    margin: 26px 5px 0 1px;
   }
   .barChecker{
-    margin: 28px 1px 0 1px;
+    margin: 25px 1px 0 1px;
   }
   .barPoints{
     color: antiquewhite;
     font-size: 20px;
-    margin: 20px 8px 0 5px;
+    margin: 23px 8px 0 5px;
   }
 }
 
