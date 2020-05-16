@@ -1,6 +1,6 @@
 {
   "files": {
-    "main.css": "/backgammonReactFront/static/css/main.1e3d4316.chunk.css",
+    "main.css": "/backgammonReactFront/static/css/main.1aae7ef0.chunk.css",
     "main.js": "/backgammonReactFront/static/js/main.8782addd.chunk.js",
     "main.js.map": "/backgammonReactFront/static/js/main.8782addd.chunk.js.map",
     "runtime-main.js": "/backgammonReactFront/static/js/runtime-main.a6474a1a.js",
@@ -8,16 +8,16 @@
     "static/js/2.ed21f784.chunk.js": "/backgammonReactFront/static/js/2.ed21f784.chunk.js",
     "static/js/2.ed21f784.chunk.js.map": "/backgammonReactFront/static/js/2.ed21f784.chunk.js.map",
     "index.html": "/backgammonReactFront/index.html",
-    "precache-manifest.0529c25f521bd41f3801d1f08271e579.js": "/backgammonReactFront/precache-manifest.0529c25f521bd41f3801d1f08271e579.js",
+    "precache-manifest.c86a1bf18855b2bb648e5ba0e729af54.js": "/backgammonReactFront/precache-manifest.c86a1bf18855b2bb648e5ba0e729af54.js",
     "service-worker.js": "/backgammonReactFront/service-worker.js",
-    "static/css/main.1e3d4316.chunk.css.map": "/backgammonReactFront/static/css/main.1e3d4316.chunk.css.map",
+    "static/css/main.1aae7ef0.chunk.css.map": "/backgammonReactFront/static/css/main.1aae7ef0.chunk.css.map",
     "static/js/2.ed21f784.chunk.js.LICENSE.txt": "/backgammonReactFront/static/js/2.ed21f784.chunk.js.LICENSE.txt",
     "static/media/NewGame.css": "/backgammonReactFront/static/media/winnerback.18606d77.jpg"
   },
   "entrypoints": [
     "static/js/runtime-main.a6474a1a.js",
     "static/js/2.ed21f784.chunk.js",
-    "static/css/main.1e3d4316.chunk.css",
+    "static/css/main.1aae7ef0.chunk.css",
     "static/js/main.8782addd.chunk.js"
   ]
 }
