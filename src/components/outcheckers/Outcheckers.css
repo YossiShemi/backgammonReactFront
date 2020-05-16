@@ -1,7 +1,7 @@
 .outcheckers{
     width: 90px;
     height: 520px;
-    margin-top: 25px;
+    margin-top: 10px;
     border: 5px black solid;
     background-color: #ffffff;
     background-image: linear-gradient(315deg, #ffffff 0%, #cea177 74%);
