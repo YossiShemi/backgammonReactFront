@@ -1,0 +1,97 @@
+.statusBar{
+    width: 750px;
+    height: 70px;
+    margin: auto;
+    margin-bottom: 5px;
+    margin-top: 20px;
+    border: 2px black solid;
+    box-shadow: #772f1a 2px 3px 20px 2px ;
+    background-image: linear-gradient(to left, #F2C17D, #A44200) ;  
+    border-radius: 35px;
+  }
+
+  .mainHeader{
+    display: flex;
+    justify-content: space-around;
+  }
+
+
+.barTitle{
+    font-size: 30px;
+    margin-top: 8px;
+    font-weight: bold;
+    color:white;
+    display: flex;
+    flex-direction: column;
+ 
+}
+
+
+.gameStatus{
+  font-weight: bold;
+  text-align: center;
+  color: white;
+  margin-top: 0;
+  padding: 0;
+  margin-top: 8px;
+  font-size: 15px;
+}
+
+
+.barPlayerStatus {
+    font-weight: bold;
+    display: flex;
+    color: white;
+}
+
+
+
+.barPlayerTitle{
+  font-size: 20px;
+  margin: 25px 5px 0 1px;
+
+}
+
+.barChecker{
+  margin: 10px 1px 0 1px;
+}
+
+.barPoints{
+  color: antiquewhite;
+  font-size: 30px;
+  margin: 20px 1px 0 5px;
+}
+
+
+
+@media (max-width: 400px){
+
+  .statusBar{
+    width: 100%
+  }
+  .barTitle{
+    font-size: 18px;
+    margin-top: 8px;
+    color: black;
+  }
+  .gameStatus{
+    margin-top: 25px;
+    font-size: 15px;
+  }
+
+
+  .barPlayerTitle{
+    font-size: 15px;
+    margin: 25px 5px 0 1px;
+  }
+  .barChecker{
+    margin: 28px 1px 0 1px;
+  }
+  .barPoints{
+    color: antiquewhite;
+    font-size: 20px;
+    margin: 20px 8px 0 5px;
+  }
+}
+
+

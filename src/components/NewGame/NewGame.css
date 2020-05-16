@@ -1,0 +1,90 @@
+.newGame {
+    position: absolute;
+    top: 32%;
+    right: 0;
+    bottom: 0;
+    left: 28%;
+    width: 40% ;
+    height: 40% ;
+    margin: 0 0 0 0 ;
+    box-shadow: 0px 0px 100px 100px black;
+    border-radius: 50px;
+    background-color: antiquewhite;
+    background-image: url('../../images/newgameback.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+
+.winner {
+    position: absolute;
+    top: 20%;
+    right: 0;
+    bottom: 0;
+    left: 28%;
+    width: 40% ;
+    height: 60% ;
+    margin: 0 0 0 0 ;
+    box-shadow: 0px 0px 10px 15px black;
+    border-radius: 5%;
+    background-color: antiquewhite;
+    background-image: url('../../images/winnerback.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: 50% ;
+}
+
+.content{
+    font-weight: bold;
+    font-size: 60px;
+    color: goldenrod;
+    margin-top: 20px;
+    text-align: center;
+}
+
+.startNewGame{
+    
+    color: white;
+    width: 80%;
+    margin: auto;
+    text-align: center;
+    font-weight: bold;
+    font-size: 30px;
+    cursor: pointer;
+    margin-top: 50px;
+}
+
+
+@media (max-width: 400px){
+    .content{
+        font-size: 25px;
+    }
+    .startNewGame{
+        font-size: 18px;
+    }
+    .newGame{
+     background-position: top;
+    }
+
+    .newGame {
+    top: 10%;
+    right: 0;
+    bottom: 0;
+    left: 25%;
+    width: 50% ;
+    height: 40% ;
+   }
+
+   .winner {
+    position: absolute;
+    top: 16%;
+    right: 0;
+    bottom: 0;
+    left: 14%;
+    width: 60% ;
+    height: 30% ;
+
+}
+    
+}
+

@@ -1,0 +1,33 @@
+.player1out{
+    width: 65px;
+    height: 15px;
+    background-color: black;
+    border: 1px #ccc solid;
+    border-radius: 5px;
+
+}
+
+.player2out{
+    width: 65px;
+    height: 15px;
+    background-color: white;
+    border: 1px #ccc solid;
+    border-radius: 5px;
+}
+
+
+
+/* Media Query */
+@media (max-width: 400px) {
+    .player1out{
+        width: 40px;
+        height: 2px;
+       }
+    
+    .player2out{
+    width: 40px;
+    height: 2px;
+    }
+}
+    
+

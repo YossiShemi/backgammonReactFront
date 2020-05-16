@@ -1,0 +1,40 @@
+.player1{
+    width: 55px;
+    height: 55px;
+    background-color: black;
+    border: 1px #ccc solid;
+    border-radius: 50%;
+}
+
+.player2{
+    width: 55px;
+    height: 55px;
+    background-color: white;
+    border: 1px #ccc solid;
+    border-radius: 50%;
+}
+
+.amount{
+  color:lightblue;
+  font-weight: bold;
+  font-size: 20px;
+  text-align: center;
+  font-family: "Comic Sans MS", cursive, sans-serif;
+  margin-top: 5px;
+}
+
+@media (max-width: 400px){
+  .player1{
+    width: 15px;
+    height: 15px;
+}
+
+.player2{
+    width: 15px;
+    height: 15px;
+}
+
+}
+
+
+

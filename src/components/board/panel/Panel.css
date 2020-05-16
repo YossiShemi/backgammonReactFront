@@ -1,0 +1,106 @@
+:root {
+    --color1: rgba(221, 201, 181, 0.79);
+    --color2: rgba(153, 34, 34, 0.72);
+    --receiveColor: rgba(44, 129, 27, 0.758);
+  }
+
+/* To display the 2 halfs together*/
+  .panel{
+    display: flex;
+    justify-content: center;
+  }
+
+
+/*Each panel is built with tow <div> which each f them is 90 degrees triangale*/
+
+/*CSS for up panels*/
+.blackLeftup{
+    background: linear-gradient(to left bottom, var(--color2) 49%, transparent 50%);
+    width: 50px;
+    height: 310px;
+    margin-top: auto;
+}
+
+.blackRightup{ 
+    background: linear-gradient(to right bottom, var(--color2) 49%, transparent 51%);
+    width: 50px;
+    height: 310px;
+    margin-top: auto;
+}
+
+.whiteLeftup{ 
+    background: linear-gradient(to left bottom, var(--color1) 49%, transparent 50%);
+    width: 50px;
+    height: 310px;
+    margin-top: auto;
+}
+
+.whiteRightup{ 
+    background: linear-gradient(to right bottom, var(--color1) 49%, transparent 51%);
+    width: 50px;
+    height: 310px;
+    margin-top: auto;
+}
+
+/*CSS for bottom panels*/
+.blackLeftbottom{ 
+    background: linear-gradient(to left top, var(--color2) 49%, transparent 50%);
+    width: 50px;
+    height: 310px;
+    margin-top: auto;
+}
+
+.blackRightbottom{ 
+    background: linear-gradient(to right top, var(--color2) 49%, transparent 51%);
+    width: 50px;
+    height: 310px;
+    margin-top: auto;
+}
+
+.whiteLeftbottom{ 
+    background: linear-gradient(to left top, var(--color1) 49%, transparent 50%);
+    width: 50px;
+    height: 310px;
+    margin-top: auto;
+}
+
+.whiteRightbottom{ 
+    background: linear-gradient(to right top, var(--color1) 49%, transparent 51%);
+    width: 50px;
+    height: 310px;
+    margin-top: auto;
+}
+
+/*CSS for checkers in panel*/
+.checkersPlace {
+    position: absolute;
+    display: flex;
+    flex-flow: column-reverse;
+  }
+  
+  .down {
+    align-self: flex-end; 
+    flex-flow: column;
+ }
+  
+
+ /**/
+ .moveable{
+     cursor: pointer;
+ }
+
+ .reciveable{
+    cursor: pointer;
+}
+
+
+
+
+ 
+/* Media Query */
+@media (max-width: 400px) {
+    .blackLeftup,.blackRightup,.whiteLeftup,.whiteRightup,
+    .blackLeftbottom,.blackRightbottom, .whiteLeftbottom, .whiteRightbottom{
+     height: 120px;
+    }
+}
