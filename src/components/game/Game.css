@@ -1,6 +1,4 @@
 
-
-
 .gamezone{
     display: flex;
     align-items: center ;
@@ -8,12 +6,6 @@
     margin-top: 10px;
     align-self: center;
     margin-left: 10px;
-}
-
-
-
-a:hover{
-    color: red;
 }
 
 

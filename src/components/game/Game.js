@@ -18,114 +18,22 @@ export class Game extends Component {
         dice: [0],
         diceSave:[0],
         points: Array(24).fill({ player: false, checkers: 0 }),
-        jail: { player1: 0, player2: 0 },
+        jail: { player1: 0, player2: 0},
         outcheckers: { player1: 15, player2: 15 },
         movingChecker: false,
         players: { p1: 'Player 1', p2: 'Player 2' },
         gameOver: true,
     }
 
-    // Game Over
-    gameOver = () => {
 
-        if (this.state.gameOver) {
-            return <NewGame
-                gameStatus={this.state.gameStatus}
-                setupNewGameHandler={this.setupNewGameHandler}
-            />;
-        }
 
-    } 
-    //Set new history
-    setHistory = (p1IsNext, dice, points, jail, outcheckers, gameStatus) => {
 
-        const history = {
-            p1IsNext: p1IsNext,
-            dice: [...dice],
-            points: [...points],
-            jail: { ...jail },
-            outcheckers: { ...outcheckers },
-            gameStatus: gameStatus,
-        }
-        return history;
-    }
-    //set up new game
-    setupNewGameHandler = () => {
-        
-        const gameStatus = 11; //New game
-        const history = [];
-        const currentPosition = 0
-        const p1IsNext =  true ;
-        const dice = [0];
-        const diceSave=[0];
-        const points = Array(24).fill({ player: false, checkers: 0 });
-        const jail = { player1: 0, player2: 0 };
-        const outcheckers = { player1: 0, player2: 0 };
-        const movingChecker = false;
-        const players = { p1: "player1", p2: "player2"};
-
-        history.push(this.setHistory(p1IsNext, dice, points, jail, outcheckers));
-
-        //set points
-        
-        points[0] = { player: 1, checkers: 2 };
-        points[11] = { player: 1, checkers: 5 };
-        points[16] = { player: 1, checkers: 3 };
-        points[18] = { player: 1, checkers: 5 };
-        points[23] = { player: 2, checkers: 2 };
-        points[12] = { player: 2, checkers: 5 };
-        points[7] = { player: 2, checkers: 3 };
-        points[5] = { player: 2, checkers: 5 };
-        
     
-        this.setState({
-            gameStatus: gameStatus,
-            history: history,
-            currentPosition: currentPosition,
-            p1IsNext: p1IsNext,
-            dice: dice,
-            diceSave: diceSave,
-            points: points,
-            jail: jail,
-            outcheckers: outcheckers,
-            movingChecker: movingChecker,
-            players: players,
-            gameOver:false
-        });
 
-    }
-    undoHandler = () => {
-        
-        if (this.state.currentPosition>0){
-        const history = [...this.state.history];
-        const newPosition = this.state.currentPosition - 1;
-        const p1IsNext = history[newPosition].p1IsNext;
-        const dice = [...history[newPosition].dice];
-        const jail = { ...history[newPosition].jail };
-        const outcheckers = { ...history[newPosition].outcheckers };
-        const movingChecker = false;
 
-        console.log('Undo last move');
 
-        const moves = this.calculateCanMove(this.state.history[newPosition].points, dice, p1IsNext, jail);
-        const points = moves.points;
-        const gameStatus = moves.gameStatus;
-        //remove last element from history
-        history.pop();
+/*Simple Functions*/ 
 
-        this.setState({
-            gameStatus: gameStatus,
-            history: history,
-            currentPosition: newPosition,
-            p1IsNext: p1IsNext,
-            dice: dice,
-            points: points,
-            jail: jail,
-            outcheckers: outcheckers,
-            movingChecker: movingChecker
-        });
-    }
-    }
     //Get the game status
     getGameStatus = () => {
         switch (this.state.gameStatus) {
@@ -147,10 +55,45 @@ export class Game extends Component {
     //Get points without actions. It creates a new object
     getPointsWithoutActions = (points) => points.map((point) => {
             return { player: point.player, checkers: point.checkers };
-        });
+    });
     getoutcheckersWithoutActions = (outcheckers) => {
         return { player1: outcheckers.player1, player2: outcheckers.player2 }
     }
+    getMovingChecker = (p1IsNext) => {
+        let movingChecker;
+        if (this.state.movingChecker !== false) { //Moving checker is assigned
+            movingChecker = this.state.movingChecker;
+        } else { //Checker coming from jail
+            if (p1IsNext) {
+                movingChecker = -1;
+            }
+            else {
+                movingChecker = 24;
+            }
+        }
+        return movingChecker;
+    }
+    //Set new history
+    setHistory = (p1IsNext, dice, points, jail, outcheckers, gameStatus) => {
+
+            const history = {
+                p1IsNext: p1IsNext,
+                dice: [...dice],
+                points: [...points],
+                jail: { ...jail },
+                outcheckers: { ...outcheckers },
+                gameStatus: gameStatus,
+            }
+            return history;
+    }
+        
+       
+
+
+
+
+/* "Black boxes" */ 
+
     //Check if player has all the checkers in the home board
     checkHomeBoard = (points, p1IsNext) => {
 
@@ -227,43 +170,125 @@ export class Game extends Component {
         }
         return canBearOff;
     } 
-    getMovingChecker = (p1IsNext) => {
-        let movingChecker;
-        if (this.state.movingChecker !== false) { //Moving checker is assigned
-            movingChecker = this.state.movingChecker;
-        } else { //Checker coming from jail
-            if (p1IsNext) {
-                movingChecker = -1;
+
+
+
+
+
+/*Actual game functions*/ 
+
+    undoHandler = () => {
+        
+        if (this.state.currentPosition>0){
+        const history = [...this.state.history];
+        const newPosition = this.state.currentPosition - 1;
+        const p1IsNext = history[newPosition].p1IsNext;
+        const dice = [...history[newPosition].dice];
+        const jail = { ...history[newPosition].jail };
+        const outcheckers = { ...history[newPosition].outcheckers };
+        const movingChecker = false;
+
+        console.log('Undo last move');
+
+        const moves = this.calculateCanMove(this.state.history[newPosition].points, dice, p1IsNext, jail);
+        const points = moves.points;
+        const gameStatus = moves.gameStatus;
+        //remove last element from history
+        history.pop();
+
+        this.setState({
+            gameStatus: gameStatus,
+            history: history,
+            currentPosition: newPosition,
+            p1IsNext: p1IsNext,
+            dice: dice,
+            points: points,
+            jail: jail,
+            outcheckers: outcheckers,
+            movingChecker: movingChecker
+        });
+    }
+    }
+        // Game Over
+    gameOver = () => {
+
+            if (this.state.gameOver) {
+                return <NewGame
+                    gameStatus={this.state.gameStatus}
+                    setupNewGameHandler={this.setupNewGameHandler}
+                />;
             }
-            else {
-                movingChecker = 24;
-            }
-        }
-        return movingChecker;
+    
+    } 
+    
+
+  
+
+
+
+/*Complicated madafaka functions*/
+ 
+    //set up new game
+    setupNewGameHandler = () => {
+        
+        const gameStatus = 11; //New game
+        const history = [];
+        const currentPosition = 0
+        const p1IsNext =  true ;
+        const dice = [0];
+        const diceSave=[0];
+        const points = Array(24).fill({ player: false, checkers: 0 });
+        const jail = { player1: 2, player2: 2 };
+        const outcheckers = { player1: 0, player2: 0 };
+        const movingChecker = false;
+        const players = { p1: "player1", p2: "player2"};
+
+        history.push(this.setHistory(p1IsNext, dice, points, jail, outcheckers));
+
+        //set points
+        
+        points[0] = { player: 1, checkers: 2 };
+        points[11] = { player: 1, checkers: 5 };
+        points[16] = { player: 1, checkers: 3 };
+        points[18] = { player: 1, checkers: 5 };
+        points[23] = { player: 2, checkers: 2 };
+        points[12] = { player: 2, checkers: 5 };
+        points[7] = { player: 2, checkers: 3 };
+        points[5] = { player: 2, checkers: 5 };
+        
+    
+        this.setState({
+            gameStatus: gameStatus,
+            history: history,
+            currentPosition: currentPosition,
+            p1IsNext: p1IsNext,
+            dice: dice,
+            diceSave: diceSave,
+            points: points,
+            jail: jail,
+            outcheckers: outcheckers,
+            movingChecker: movingChecker,
+            players: players,
+            gameOver:false
+        });
+
     }
 
-
-
-    
     //Roll dices
     rollDiceHandler = () => {
 
         let p1IsNext =  this.state.p1IsNext;
-        //new dice
         let dice = [];
         let diceSave=[];
-        //Get two random numbers
         dice.push(Math.floor(Math.random() * 6) + 1);
         dice.push(Math.floor(Math.random() * 6) + 1);
-        //duplicate numbers if the same
         if (dice[0] === dice[1]) {
             dice[2] = dice[3] = dice[0];
         }
         diceSave=[...dice];
-
         console.log("Rolled dice: " + dice);
 
-        //Get moves and status
+        //Get moves and status after calculating moves option
         const moves = this.calculateCanMove(
             this.getPointsWithoutActions(this.state.points),
             dice,
@@ -274,10 +299,10 @@ export class Game extends Component {
         //get points and status
         const points = moves.points;
         let gameStatus = moves.gameStatus;
+       
         //reset history
         const currentPosition = 0;
         const history = [];
-        //Save current state into history
         history.push(this.setHistory(
             p1IsNext,
             dice,
@@ -287,6 +312,7 @@ export class Game extends Component {
             gameStatus
         ));
 
+        //If no moves avaliable
         if (gameStatus===50){
             p1IsNext=!p1IsNext;
             dice[0]=0;
@@ -299,8 +325,8 @@ export class Game extends Component {
                 p1IsNext: p1IsNext,
             });      
         }
-        else{
         //Set new state
+        else{
         this.setState({
             gameStatus: gameStatus,
             history: history,
@@ -313,27 +339,19 @@ export class Game extends Component {
      }
     }
 
-    //Calculate possible moves return an object with points and game status
+    //Calculate possible moves return an object with new points and game status
     calculateCanMove = (points, dice, p1IsNext, jail) => {
 
         let newPoints = [...points];
         let gameStatus = 50; //No moves available
-        if (!dice[0]) {
-            gameStatus = 40; // No dice to play
-        }
-
-
         
+        if (!dice[0]) {gameStatus = 40; } // No dice to play
+       
         else {
-
-
-
-
 
             //check if there is checker on gray Bar
             if ((p1IsNext && jail.player1) ||
                 (!p1IsNext && jail.player2)) {
-
                 for (let die of dice) {
                     const destination = p1IsNext ? die - 1 : 24 - die;
                     if (points[destination].player === this.getPlayer(p1IsNext) || //point belongs to user
@@ -345,21 +363,15 @@ export class Game extends Component {
                 }
             }
 
-
-
-
-
             else {
-
-                const inHomeBoard = this.checkHomeBoard(newPoints, p1IsNext);
-
+                //check if all checkers in homeboard
+                const inHomeBoard = this.checkHomeBoard(newPoints, p1IsNext); 
+               //check all panels on board
                 for (let index = 0; index < points.length; index++) {
-
                     let canMove = false;
-
+                    //check if checkers on a panel can move with the dices
                     if (points[index].player === this.getPlayer(p1IsNext)) {
                         for (let die of dice) {
-
                             const destination = p1IsNext ? index + die : index - die;
                             if (!canMove && destination < 24 && destination >= 0) {
                                 if (points[destination].player === this.getPlayer(p1IsNext) ||
@@ -370,16 +382,14 @@ export class Game extends Component {
                             }
                         }
                     }
-
-
+                    //check if can bear off
                     if (inHomeBoard && ((p1IsNext && index >= 18) || (!p1IsNext && index <= 5))) {
-
                         if (this.checkCanBearOff(points, index, p1IsNext, dice)) {
                             canMove = true;
                             gameStatus = 32; //Bearing off
                         }
                     }
-
+                    // change the status of the checker
                     if (canMove) {
                         newPoints[index].canMove = this.moveCheckerHandler.bind(this, index);
                     }
@@ -390,31 +400,33 @@ export class Game extends Component {
         return { points: newPoints, gameStatus: gameStatus };
     }
 
-    //Set moving checker
+    //Clicked checker marks the optional panels to move to and mark them as !!!receiveCheckerHandler!!!
     moveCheckerHandler = (checker) => {
 
         let gameStatus = 30; //playing
         const p1IsNext = this.state.p1IsNext;
-        //Get outcheckers without actions
         const outcheckers = this.getoutcheckersWithoutActions(this.state.outcheckers);
-        //get points without actions
         let points = this.getPointsWithoutActions(this.state.points);
-
-        //set or unset the moving checker
+        
+        // if clicked twice- cancel the mark as movingchecker
         const movingChecker = checker !== this.state.movingChecker ? checker : false;
 
+        //if there is clicked checeker
         if (movingChecker !== false) {
+           
             //add action to the moving checker. This uncheck the moving checker
             points[movingChecker].canMove = this.moveCheckerHandler.bind(this, movingChecker);
 
+            //mark the two optional panels to moce if playing inside the board
             for (let die of this.state.dice) {
-
                 const destination = p1IsNext ? movingChecker + die : movingChecker - die;
                 if (destination < 24 && destination >= 0) {
                     //Check if destnation can receive the checker
                     if (points[destination].player === this.getPlayer(p1IsNext) ||
                         points[destination].checkers < 2) {
-                        points[destination].canReceive = this.receiveCheckerHandler.bind(this, die); //Add can Receive to point
+                        // mark them as !!!receiveCheckerHandler!!!
+                        points[destination].canReceive = this.receiveCheckerHandler.bind(this, die); 
+
                     }
                 }
             }
@@ -423,9 +435,9 @@ export class Game extends Component {
             if (this.checkHomeBoard(points, p1IsNext) &&
                 ((p1IsNext && movingChecker >= 18) || (!p1IsNext && movingChecker <= 5))) {
                     console.log("Home board clean");
-                    
-                //Get the dice to move
+                //Get the dice to bear off with
                 let die = this.checkCanBearOff(points, movingChecker, p1IsNext, this.state.dice);
+                // mark outCheckers as !!!receiveCheckerHandler!!! 
                 if (die) {
                         console.log("Can bear off");
                     if (p1IsNext) {
@@ -435,18 +447,20 @@ export class Game extends Component {
                     }
                     gameStatus = 32; //Bearing off
                 }
-                console.log(this.state);
                 
             }
 
             console.log("moving checker from point " + (p1IsNext ? movingChecker + 1 : 24 - movingChecker));
         }
+        //if checker is clicked twice- search new moves avaliavle again
         else {
             const moves = this.calculateCanMove(points, this.state.dice, this.state.p1IsNext, this.state.jail);
             points = moves.points;
             gameStatus = moves.gameStatus;
         }
 
+
+        //Set new state
         this.setState({
             gameStatus: gameStatus,
             points: points,
@@ -462,19 +476,10 @@ export class Game extends Component {
         const outcheckers = this.getoutcheckersWithoutActions(this.state.outcheckers);
         const dice = [...this.state.dice];
         let p1IsNext = this.state.p1IsNext;
-        let gameStatus = 30; //playing
-
-        //get points without actions
         let points = this.state.points;
-
-        //get the moving checker or jail (-1 or 24)
-        let movingChecker = this.getMovingChecker(p1IsNext);
-        console.log(movingChecker);
-        
-
-        //get destination
-        const destination = p1IsNext ? movingChecker + die : movingChecker - die;
-
+        let movingChecker = this.getMovingChecker(p1IsNext); //get the moving checker or jail (-1 or 24)
+        let gameStatus = 30; //playing
+        const destination = p1IsNext ? movingChecker + die : movingChecker - die; // the panel the checker moving to
         //Logging
         if (destination > 23 || destination < 0) {
             console.log('Bearing off Checker');
@@ -482,16 +487,19 @@ export class Game extends Component {
             console.log('Moving checker to point ' + (p1IsNext ? destination + 1 : 24 - destination));
         }
 
+
+
+
+        /*Removing */
         //Remove the checker from orign and clean point if it has no checker
         if (movingChecker >= 0 && movingChecker <= 23 &&  points[movingChecker]) {
             points[movingChecker].checkers--;
-
             if (points[movingChecker].checkers === 0) {
-                points[movingChecker].player = false; //unassign point if there is no checker
+                points[movingChecker].player = false; 
             }
-
         }
-        else { //remove from jail
+        //remove from jail
+        else { 
             if (movingChecker === -1) {//remove p1 from gray bar
                 jail.player1--;
             }
@@ -500,17 +508,23 @@ export class Game extends Component {
             }
         }
 
+
+
+
+
+
+
+        /*Adding */
         //Moving checker inside the board
         if (destination <= 23 && destination >= 0) {
+            //Point either belongs to player or to nobody
             if (points[destination].player === this.getPlayer(p1IsNext)
-                || points[destination].player === false) { //Point either belongs to player or to nobody
-
-                //Add checker to destination
+                || points[destination].player === false) { 
                 points[destination].player=this.getPlayer(p1IsNext);
                 points[destination].checkers++;
             }
-            else { //Destination has different player.
-                //Send to gray bar
+            //Destination has different player with 1 checker, send to jail.
+            else { 
                 if (p1IsNext) {
                     jail.player2++
                 } else {
@@ -520,7 +534,8 @@ export class Game extends Component {
             //Assign destination point to player. In this case destination has only one checker
             points[destination].player = this.getPlayer(p1IsNext);
         }
-        else { //Bearing off
+        //If not playing inside, it mens the checker is bearing off
+        else {
             if (p1IsNext) {
                 outcheckers.player1++;
             } else {
@@ -528,29 +543,25 @@ export class Game extends Component {
             }
         }
 
-        //Moving checker now is false
-        movingChecker = false;
 
-        //remove die from dice
-        const diceIndex = dice.findIndex((dieNumber) => dieNumber === die);
+
+
+
+
+
+        /*Reseting to find new moves after checker moved*/
+        movingChecker = false; // cancel moving checker
+        const diceIndex = dice.findIndex((dieNumber) => dieNumber === die); // remove the die played
         dice.splice(diceIndex, 1);
         console.log("Played die " + die);
-
-        //Change player if no die
-
-     
-            
-        
-        for(let point of points){
+        for(let point of points){// reset all panels
                 point.canReceive=false;
-                point.canMove=false;
-        
-            const moves = this.calculateCanMove(points, dice, p1IsNext, jail);
-            points = moves.points;
-            gameStatus = moves.gameStatus;
-
-
-               
+                point.canMove=false;}
+                console.log("All false");     
+        const moves = this.calculateCanMove(points, dice, p1IsNext, jail);// find new moves
+        points = moves.points;
+        gameStatus = moves.gameStatus;
+        //Change player if no die
         if (dice.length === 0 ||gameStatus===50) {
             dice[0] = 0;
             p1IsNext = !p1IsNext;
@@ -558,13 +569,25 @@ export class Game extends Component {
                {diceSave:[0]}
             );
         }  
-        }
+        
 
+
+
+
+
+
+        //Add this move to the history in order to be able to Undo
         const currentPosition = this.state.currentPosition + 1;
         const history = [...this.state.history];
         history.push(this.setHistory(p1IsNext, dice, points, jail, outcheckers));
 
-        //Check if all checkers are in the outside bar
+
+
+
+
+
+
+        //Check if we have a winner
         if (outcheckers.player1 === 15) {
             gameStatus = 60; //Player one wins
             this.setState({gameOver:true});
@@ -575,6 +598,9 @@ export class Game extends Component {
         
         
 
+
+
+        
         this.setState({
             gameStatus: gameStatus,
             history: history,
@@ -591,6 +617,12 @@ export class Game extends Component {
     }
 
    
+
+
+
+
+
+
 
     render() {
         return (

@@ -13,10 +13,9 @@ export class StatusBar extends Component {
         this.props.points.map((point, index) => {
 
             if (point.player) { //Check if the point belongs to a player
-
-                if (point.player === 1) { //if player 1
+                if (point.player === 1) { 
                     scoreP1 += (24 - index) * point.checkers
-                } else { //if player 2
+                } else { 
                     scoreP2 += (index + 1) * point.checkers
                 }
             }
@@ -33,6 +32,8 @@ export class StatusBar extends Component {
 
         return { 'P1': scoreP1, 'P2': scoreP2 };
     }
+
+    
 
     getGameStatus=()=>{
 

@@ -58,7 +58,7 @@ export default function AlertDialogSlide() {
     return (
       <div>
 
-        <a onClick={handleClickOpen}>Rules</a>
+        <div onClick={handleClickOpen} alt="Rules">Rules</div>
       
         <Dialog
           open={open}
@@ -71,10 +71,10 @@ export default function AlertDialogSlide() {
           <h2 className={classes.rules}>Rules !</h2> 
 
           <DialogContent>
-          <a href="https://en.wikipedia.org/wiki/Backgammon"  target="_blank" className={classes.link} > Click here to go to backgamon rules on Wikipedia, I'm lazy :)</a>
+          <a href="https://en.wikipedia.org/wiki/Backgammon"  target="blank" className={classes.link} > Click here to go to backgamon rules on Wikipedia, I'm lazy :)</a>
           </DialogContent>
 
-          <img src={require('../images/rules.gif')} className={classes.img}/>
+          <img src={require('../images/rules.gif')} alt="Rules" className={classes.img}/>
 
           <DialogActions>
             <Button onClick={handleClose} >

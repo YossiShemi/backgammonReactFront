@@ -26,25 +26,21 @@
  
 }
 
-
 .gameStatus{
   font-weight: bold;
   text-align: center;
-  color: white;
+  color: blue;
   margin-top: 0;
   padding: 0;
   margin-top: 8px;
   font-size: 15px;
 }
 
-
 .barPlayerStatus {
     font-weight: bold;
     display: flex;
     color: white;
 }
-
-
 
 .barPlayerTitle{
   font-size: 20px;

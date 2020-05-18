@@ -10,7 +10,6 @@
     justify-content: center;
   }
 
-
 /*Each panel is built with tow <div> which each f them is 90 degrees triangale*/
 
 /*CSS for up panels*/
@@ -71,13 +70,42 @@
     margin-top: auto;
 }
 
+/*Recieveable panels*/
+.rightBottomRecieve{
+    background: linear-gradient(to right top, rgba(0, 255, 0, 0.32) 49%, transparent 51%);
+    width: 50px;
+    height: 275px;
+    margin-top: auto;
+    cursor: pointer;
+}
+.leftBottomRecieve{
+    background: linear-gradient(to left top,  rgba(0, 255, 0, 0.32)  49%, transparent 50%);
+    width: 50px;
+    height: 275px;
+    margin-top: auto;
+    cursor: pointer;
+}
+.rightUpRecieve{
+    background: linear-gradient(to right bottom,  rgba(0, 255, 0, 0.32) 49%, transparent 51%);
+    width: 50px;
+    height: 275px;
+    margin-top: auto;
+    cursor: pointer;
+}
+.leftUpRecieve{
+    background: linear-gradient(to left bottom,  rgba(0, 255, 0, 0.32) 49%, transparent 50%);
+    width: 50px;
+    height: 275px;
+    margin-top: auto;
+    cursor: pointer;
+}
+
 /*CSS for checkers in panel*/
 .checkersPlace {
     position: absolute;
     display: flex;
     flex-flow: column-reverse;
   }
-  
   .down {
     align-self: flex-end; 
     flex-flow: column;
@@ -88,15 +116,14 @@
  .moveable{
      cursor: pointer;
  }
-
  .reciveable{
+    cursor: pointer;
+}
+.reciveablePanel{
     cursor: pointer;
 }
 
 
-
-
- 
 /* Media Query */
 @media (max-width: 400px) {
     .blackLeftup,.blackRightup,.whiteLeftup,.whiteRightup,
