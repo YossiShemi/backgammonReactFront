@@ -72,28 +72,28 @@
 
 /*Recieveable panels*/
 .rightBottomRecieve{
-    background: linear-gradient(to right top, rgba(0, 255, 0, 0.32) 49%, transparent 51%);
+    background: linear-gradient(to right top, rgba(11, 184, 11, 0.829) 49%, transparent 51%);
     width: 50px;
     height: 275px;
     margin-top: auto;
     cursor: pointer;
 }
 .leftBottomRecieve{
-    background: linear-gradient(to left top,  rgba(0, 255, 0, 0.32)  49%, transparent 50%);
+    background: linear-gradient(to left top,  rgba(11, 184, 11, 0.829)  49%, transparent 50%);
     width: 50px;
     height: 275px;
     margin-top: auto;
     cursor: pointer;
 }
 .rightUpRecieve{
-    background: linear-gradient(to right bottom,  rgba(0, 255, 0, 0.32) 49%, transparent 51%);
+    background: linear-gradient(to right bottom,  rgba(11, 184, 11, 0.829) 49%, transparent 51%);
     width: 50px;
     height: 275px;
     margin-top: auto;
     cursor: pointer;
 }
 .leftUpRecieve{
-    background: linear-gradient(to left bottom,  rgba(0, 255, 0, 0.32) 49%, transparent 50%);
+    background: linear-gradient(to left bottom,  rgba(11, 184, 11, 0.829) 49%, transparent 50%);
     width: 50px;
     height: 275px;
     margin-top: auto;

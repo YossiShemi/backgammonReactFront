@@ -1,5 +1,5 @@
 .statusBar{
-    width: 750px;
+    width: 85%;
     height: 70px;
     margin: auto;
     margin-bottom: 5px;
@@ -17,24 +17,18 @@
 
 
 .barTitle{
-    font-size: 30px;
+    font-size: 50px;
     margin-top: 8px;
     font-weight: bold;
     color:white;
     display: flex;
     flex-direction: column;
+    justify-content: center;
+    align-items: center;
  
 }
 
-.gameStatus{
-  font-weight: bold;
-  text-align: center;
-  color: blue;
-  margin-top: 0;
-  padding: 0;
-  margin-top: 8px;
-  font-size: 15px;
-}
+
 
 .barPlayerStatus {
     font-weight: bold;
@@ -66,9 +60,8 @@
     width: 100%
   }
   .barTitle{
-    font-size: 18px;
-    margin-top: 8px;
-    color: black;
+    font-size: 27px;
+    margin-top: 17px;
   }
   .gameStatus{
     margin-top: 25px;

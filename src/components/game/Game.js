@@ -6,6 +6,7 @@ import StatusBar from '../statusBar/StatusBar';
 import Outcheckers from '../outcheckers/Outcheckers';
 import NewGame from '../NewGame/NewGame';
 import Menu from '../Menu';
+import StatusPanel from '../statusPanel/StatusPanel';
 
 export class Game extends Component {
   
@@ -17,6 +18,7 @@ export class Game extends Component {
         p1IsNext: true,
         dice: [0],
         diceSave:[0],
+        diceNoMove:[0],
         points: Array(24).fill({ player: false, checkers: 0 }),
         jail: { player1: 0, player2: 0},
         outcheckers: { player1: 15, player2: 15 },
@@ -286,6 +288,8 @@ export class Game extends Component {
             dice[2] = dice[3] = dice[0];
         }
         diceSave=[...dice];
+        const diceNoMove=[...dice]; // to status bar-  to show number of dices when no moves avaliable and dice are deleted
+        this.setState({diceNoMove:diceNoMove});
         console.log("Rolled dice: " + dice);
 
         //Get moves and status after calculating moves option
@@ -637,20 +641,26 @@ export class Game extends Component {
 
                 <Menu/>
 
-
-                <div className="gamezone">
-                <Board 
-                points={this.state.points}
-                jail={this.state.jail}
-                gameStatus={this.state.gameStatus}
-                dices={this.state.diceSave}
-                rolldices={this.rollDiceHandler}
-                p1IsNext={this.state.p1IsNext}
-                />  
-                <Outcheckers 
-                out={this.state.outcheckers}
-                undo={this.undoHandler}
-                />
+                <div>
+                     <StatusPanel
+                        gameStatus= {this.state.gameStatus}
+                        p1IsNext={this.state.p1IsNext}
+                        diceNoMove={this.state.diceNoMove}
+                        />
+                    <div className="gamezone">
+                    <Board 
+                    points={this.state.points}
+                    jail={this.state.jail}
+                    gameStatus={this.state.gameStatus}
+                    dices={this.state.diceSave}
+                    rolldices={this.rollDiceHandler}
+                    p1IsNext={this.state.p1IsNext}
+                    />  
+                    <Outcheckers 
+                    out={this.state.outcheckers}
+                    undo={this.undoHandler}
+                    />
+                     </div>
                 </div>
                 
                 {this.gameOver()}

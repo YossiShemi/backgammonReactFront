@@ -31,9 +31,9 @@
 }
 
 @keyframes canMove {
-  0% {box-shadow: 0 0 15px 50px rgba(0, 255, 0, 0.32) inset}
-  50% {box-shadow: 2px 2px 5px 3px rgba(255, 255, 255, 0.0) inset}
-  100% {box-shadow: 0 0 15px 50px rgba(0, 255, 0, 0.32) inset}
+  0% {box-shadow: 0 0 15px 50px rgb(57, 201, 57) inset}
+  50% {box-shadow: 0px 0px 15px 50px green inset}
+  100% {box-shadow: 0 0 15px 50px rgb(57, 201, 57) inset}
 }
 
 @media (max-width: 400px){

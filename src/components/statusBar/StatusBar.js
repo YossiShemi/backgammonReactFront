@@ -33,31 +33,6 @@ export class StatusBar extends Component {
         return { 'P1': scoreP1, 'P2': scoreP2 };
     }
 
-    
-
-    getGameStatus=()=>{
-
-        let status= this.props.p1IsNext? "Player 1 turn": "Player 2 turn";
-    
-        if (this.props.gameStatus===80)
-        status="Welcome!"
-        
-        if (this.props.gameStatus===60 || this.props.gameStatus===70){
-            this.props.gameStatus===60? 
-            status="Player 1 Win !!!"
-            :
-            status="Player 2 Win !!!"
-            }
-         
-        if (this.props.gameStatus===50){
-            let player= this.props.p1IsNext? "Player 2 turn": "Player 1 turn";
-            status="No moves avaliable, "+player;
-        }
-
-    
-        return status;
-       }
-
 
   
     render() {
@@ -73,9 +48,6 @@ export class StatusBar extends Component {
 
                     <div className="barTitle"> 
                         <span>Game Bar</span>
-                        <div className="gameStatus">
-                          {this.getGameStatus()} 
-                        </div>
                     </div>
 
                     <div className="barPlayerStatus"> 

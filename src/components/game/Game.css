@@ -1,9 +1,12 @@
 
+body{
+    background-image: linear-gradient(160deg , white 85%, #FFCB9C) ;
+   }
+   
 .gamezone{
     display: flex;
     align-items: center ;
     justify-content: center;
-    margin-top: 10px;
     align-self: center;
     margin-left: 10px;
 }
