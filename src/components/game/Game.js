@@ -238,7 +238,7 @@ export class Game extends Component {
         const dice = [0];
         const diceSave=[0];
         const points = Array(24).fill({ player: false, checkers: 0 });
-        const jail = { player1: 2, player2: 2 };
+        const jail = { player1: 0, player2: 0 };
         const outcheckers = { player1: 0, player2: 0 };
         const movingChecker = false;
         const players = { p1: "player1", p2: "player2"};
