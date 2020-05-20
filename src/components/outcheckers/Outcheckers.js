@@ -24,20 +24,48 @@ export class outcheckers extends Component {
 
   }
 
+  playAudio=()=> {
+    const audioEl = document.getElementsByClassName("outcheckersSound")[0];
+    audioEl.play();
+  }
+ 
+
+  actions=()=>{
+    if (this.attributes().actionP1){
+    this.attributes().actionP1();
+    this.playAudio();
+    }
+    if (this.attributes().actionP2){
+      this.attributes().actionP2();
+      this.playAudio();
+      }
+}
+
+
+
+
+
   render() {
         return (
             <div className="outcheckers">
-                <div className={this.attributes().classnamep1} onClick={this.attributes().actionP1}>
+                <div className={this.attributes().classnamep1} onClick={()=>{this.actions()}}>
                   <h1>Player 1</h1>
                   {DisplayCheckers("player1out", this.props.out.player1,2)}
                 </div>
 
                 <div className="undo" onClick={this.props.undo}> Undo </div>
 
-                <div className={this.attributes().classnamep2} onClick={this.attributes().actionP2}>
+                <div className={this.attributes().classnamep2} onClick={()=>{this.actions()}}>
                   <h1 >Player 2</h1>
                   {DisplayCheckers("player2out", this.props.out.player2,2)}
                 </div>
+           
+                <audio className="outcheckersSound">
+                 <source src={require('../../sounds/outcheckers.mp3')}></source>
+                </audio>
+
+           
+           
             </div>
         )
     }

@@ -24,16 +24,33 @@ export class Panel extends Component {
 
     }
 
+    playAudio=()=> {
+        const audioEl = document.getElementsByClassName("panelSound")[0];
+        audioEl.play();
+      }
+     
+    actions=()=>{
+        this.playAudio();
+        if (this.attributes().action){
+        this.attributes().action();}
+    }
+
     
     render() {
         return (
             <div className="panel">
-                <div className={this.props.color+'Left'+this.props.dir+    ' left'+this.attributes().panelCanRecieve} onClick={this.attributes().action}></div>
-                <div className={this.props.color+'Right'+this.props.dir+   ' right'+this.attributes().panelCanRecieve} onClick={this.attributes().action}></div>
-                <div className={this.attributes().stl} onClick={this.attributes().action}> 
+
+                <div className={this.props.color+'Left'+this.props.dir+    ' left'+this.attributes().panelCanRecieve} onClick={()=>{this.actions()}}></div>
+                <div className={this.props.color+'Right'+this.props.dir+   ' right'+this.attributes().panelCanRecieve} onClick={()=>{this.actions()}}></div>
+                <div className={this.attributes().stl} onClick={()=>{this.actions()}}> 
                 {this.props.children}
                 </div>
-                
+
+                <audio className="panelSound">
+                 <source src={require('../../../sounds/panel.mp3')}></source>
+                </audio>
+
+
             </div>
         )
     }

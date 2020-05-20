@@ -49,17 +49,35 @@ export class Dice extends Component {
         }
     }
     
+  
     displayDots=()=>{
     this.fillDots();
     return this.state.dots.map(dot=>
         (dot===true)  ? <div className="dot" key={Math.random()*10000000} ></div> : <div key={Math.random()*10000000}></div>);
-        
+
     }
-    
+
+    playAudio=()=> {
+        const audioEl = document.getElementsByClassName("diceSound")[0];
+        audioEl.play();
+      }
+
+    componentDidMount(){
+        this.playAudio();
+    }
+
+
+
+
     render() {
         return (
             <div className="dice">
             {this.displayDots()}
+
+            <audio className="diceSound">
+                 <source src={require('../../../sounds/dice.mp3')}></source>
+                </audio>
+
             </div>
         )
     }

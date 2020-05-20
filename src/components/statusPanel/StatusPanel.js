@@ -20,7 +20,7 @@ export class StatusPanel extends Component {
          
         if (this.props.gameStatus===50){
             let player= this.props.p1IsNext? "Player 2 turn": "Player 1 turn";
-            status="No moves avaliable! "+" --- Dices: ("+this.props.diceNoMove[0]+","+this.props.diceNoMove[1]+") ---    "+player;
+            status=`No moves avaliable! --- Dices: (" ${this.props.diceNoMove[0]}, ${this.props.diceNoMove[1]} ") --- ${player}`;
         }
 
     

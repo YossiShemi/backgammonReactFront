@@ -19,6 +19,17 @@ export class NewGame extends Component {
     return content;
     }
 
+    playAudio=()=> {
+        const audioEl = document.getElementsByClassName("winnerSound")[0];
+        audioEl.play();
+      }
+
+    componentDidMount(){
+        if (this.props.gameStatus!==80)
+        this.playAudio();
+    }
+
+
 
     render() {
        if (this.props.gameStatus===80){
@@ -42,6 +53,11 @@ export class NewGame extends Component {
                 <div className="startNewGame" onClick={this.props.setupNewGameHandler} >
                 Click here to start new game
                 </div>
+
+                <audio className="winnerSound">
+                 <source src={require('../../sounds/winner.mp3')}></source>
+                </audio>
+
             </div>
         );}
 

@@ -17,15 +17,15 @@
 
 .winner {
     position: absolute;
-    top: 27%;
+    top: 40%;
     right: 0;
     bottom: 0;
-    left: 28%;
+    left: 27%;
     width: 40% ;
     height: 60% ;
     margin: 0 0 0 0 ;
-    box-shadow: 0px 0px 10px 15px black;
-    border-radius: 5%;
+    box-shadow: 0px 0px 20px 20px goldenrod;
+    border-radius: 20px;
     background-color: antiquewhite;
     background-image: url('../../images/winnerback.jpg');
     background-repeat: no-repeat;
@@ -50,13 +50,13 @@
     font-weight: bold;
     font-size: 30px;
     cursor: pointer;
-    margin-top: 50px;
+    margin-top: 60px;
 }
 
 
 @media (max-width: 400px){
     .content{
-        font-size: 25px;
+        font-size: 23px;
     }
     .startNewGame{
         font-size: 18px;
@@ -65,21 +65,22 @@
      background-position: top;
     }
     .newGame {
-    top: 17%;
+    top: 27%;
     right: 0;
     bottom: 0;
-    left: 25%;
-    width: 50% ;
-    height: 40% ;
+    left: 23%;
+    width: 55% ;
+    height: 45% ;
+    box-shadow: 0px 0px 30px 80px black;
    }
    .winner {
     position: absolute;
-    top: 16%;
+    top: 38%;
     right: 0;
     bottom: 0;
     left: 14%;
     width: 60% ;
-    height: 30% ;
+    height: 32% ;
     }
     
 }
