@@ -241,7 +241,7 @@ export class Game extends Component {
         const diceSave=[0];
         const points = Array(24).fill({ player: false, checkers: 0 });
         const jail = { player1: 0, player2: 0 };
-        const outcheckers = { player1: 13, player2: 13 };
+        const outcheckers = { player1: 14, player2: 14 };
         const movingChecker = false;
         const players = { p1: "player1", p2: "player2"};
 
@@ -258,8 +258,8 @@ export class Game extends Component {
         points[7] = { player: 2, checkers: 3 };
         points[5] = { player: 2, checkers: 5 };
         */
-        points[4] = { player: 2, checkers: 2 };
-        points[18] = { player: 1, checkers: 2 };
+        points[2] = { player: 2, checkers: 1 };
+        points[20] = { player: 1, checkers: 1 };
     
         this.setState({
             gameStatus: gameStatus,

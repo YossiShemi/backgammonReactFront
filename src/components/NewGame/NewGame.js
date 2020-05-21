@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import './NewGame.css';
+import Confetti from './Confetti';
 
 export class NewGame extends Component {
 
@@ -46,6 +47,8 @@ export class NewGame extends Component {
 
        else{
         return (
+            <React.Fragment>
+            <Confetti/>
             <div className="winner" >
                 <div className="content">
                 {this.message()}
@@ -57,8 +60,9 @@ export class NewGame extends Component {
                 <audio className="winnerSound">
                  <source src={require('../../sounds/winner.mp3')}></source>
                 </audio>
-
             </div>
+            </React.Fragment>
+            
         );}
 
 
