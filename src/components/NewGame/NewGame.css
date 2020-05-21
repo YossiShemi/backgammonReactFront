@@ -3,7 +3,7 @@
     top: 45%;
     right: 0;
     bottom: 0;
-    left: 26%;
+    left: 29%;
     width: 40% ;
     height: 40% ;
     margin: 0 0 0 0 ;
@@ -20,7 +20,7 @@
     top: 40%;
     right: 0;
     bottom: 0;
-    left: 27%;
+    left: 29%;
     width: 40% ;
     height: 60% ;
     margin: 0 0 0 0 ;
@@ -48,9 +48,9 @@
     margin: auto;
     text-align: center;
     font-weight: bold;
-    font-size: 30px;
+    font-size: 25px;
     cursor: pointer;
-    margin-top: 60px;
+    margin-top: 130px;
 }
 
 

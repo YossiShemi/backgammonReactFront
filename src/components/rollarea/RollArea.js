@@ -9,8 +9,8 @@ export class RollArea extends Component {
         if (this.props.dices[0]!==0)
             return (
                 <div className="rollarea">
-                    <Dice number={this.props.dices[0]}/>
-                    <Dice number={this.props.dices[1]}/>
+                    <Dice number={this.props.dices[0]} volume={this.props.volume}/>
+                    <Dice number={this.props.dices[1]}  volume={this.props.volume}/>
                 </div>)
 
         return (

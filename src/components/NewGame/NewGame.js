@@ -21,9 +21,13 @@ export class NewGame extends Component {
     }
 
     playAudio=()=> {
-        const audioEl = document.getElementsByClassName("winnerSound")[0];
-        audioEl.play();
+        const audio = new Audio();
+        audio.src = require('../../sounds/winner.mp3');
+        audio.volume=this.props.volume;
+        audio.play();
+   
       }
+     
 
     componentDidMount(){
         if (this.props.gameStatus!==80)
@@ -57,9 +61,7 @@ export class NewGame extends Component {
                 Click here to start new game
                 </div>
 
-                <audio className="winnerSound">
-                 <source src={require('../../sounds/winner.mp3')}></source>
-                </audio>
+            
             </div>
             </React.Fragment>
             

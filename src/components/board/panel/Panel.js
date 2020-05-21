@@ -25,8 +25,11 @@ export class Panel extends Component {
     }
 
     playAudio=()=> {
-        const audioEl = document.getElementsByClassName("panelSound")[0];
-        audioEl.play();
+        const audio = new Audio();
+        audio.src = require('../../../sounds/panel.mp3');
+        audio.volume=this.props.volume;
+        audio.play();
+   
       }
      
     actions=()=>{
@@ -46,11 +49,7 @@ export class Panel extends Component {
                 {this.props.children}
                 </div>
 
-                <audio className="panelSound">
-                 <source src={require('../../../sounds/panel.mp3')}></source>
-                </audio>
-
-
+    
             </div>
         )
     }

@@ -25,11 +25,13 @@ export class outcheckers extends Component {
   }
 
   playAudio=()=> {
-    const audioEl = document.getElementsByClassName("outcheckersSound")[0];
-    audioEl.play();
+    const audio = new Audio();
+    audio.src = require('../../sounds/outcheckers.mp3');
+    audio.volume=this.props.volume;
+    audio.play();
+
   }
  
-
   actions=()=>{
     if (this.attributes().actionP1){
     this.attributes().actionP1();
@@ -59,13 +61,7 @@ export class outcheckers extends Component {
                   <h1 >Player 2</h1>
                   {DisplayCheckers("player2out", this.props.out.player2,2)}
                 </div>
-           
-                <audio className="outcheckersSound">
-                 <source src={require('../../sounds/outcheckers.mp3')}></source>
-                </audio>
 
-           
-           
             </div>
         )
     }

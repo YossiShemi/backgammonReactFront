@@ -7,6 +7,7 @@ import Outcheckers from '../outcheckers/Outcheckers';
 import NewGame from '../NewGame/NewGame';
 import Menu from '../Menu';
 import StatusPanel from '../statusPanel/StatusPanel';
+import SoundController from '../soundController/SoundController';
 
 export class Game extends Component {
   
@@ -25,6 +26,7 @@ export class Game extends Component {
         movingChecker: false,
         players: { p1: 'Player 1', p2: 'Player 2' },
         gameOver: true,
+        volume:1,
     }
 
 
@@ -218,6 +220,7 @@ export class Game extends Component {
                 return <NewGame
                     gameStatus={this.state.gameStatus}
                     setupNewGameHandler={this.setupNewGameHandler}
+                    volume={this.state.volume}
                 />;
             }
     
@@ -241,7 +244,7 @@ export class Game extends Component {
         const diceSave=[0];
         const points = Array(24).fill({ player: false, checkers: 0 });
         const jail = { player1: 0, player2: 0 };
-        const outcheckers = { player1: 14, player2: 14 };
+        const outcheckers = { player1: 13, player2: 14 };
         const movingChecker = false;
         const players = { p1: "player1", p2: "player2"};
 
@@ -259,7 +262,7 @@ export class Game extends Component {
         points[5] = { player: 2, checkers: 5 };
         */
         points[2] = { player: 2, checkers: 1 };
-        points[20] = { player: 1, checkers: 1 };
+        points[20] = { player: 1, checkers: 2 };
     
         this.setState({
             gameStatus: gameStatus,
@@ -626,6 +629,13 @@ export class Game extends Component {
 
 
 
+    changeVolume=(volume)=>{
+        this.setState({volume:volume});
+    }
+
+
+
+
 
 
 
@@ -640,16 +650,19 @@ export class Game extends Component {
                 gameStatus= {this.state.gameStatus}
                 p1IsNext={this.state.p1IsNext}
                 />
-
                 <Menu/>
 
                 <div>
-                     <StatusPanel
-                        gameStatus= {this.state.gameStatus}
-                        p1IsNext={this.state.p1IsNext}
-                        diceNoMove={this.state.diceNoMove}
-                        />
+                    <StatusPanel
+                    gameStatus= {this.state.gameStatus}
+                    p1IsNext={this.state.p1IsNext}
+                    diceNoMove={this.state.diceNoMove}
+                    />
+
                     <div className="gamezone">
+                    <SoundController 
+                    changeVolume={this.changeVolume}
+                    />
                     <Board 
                     points={this.state.points}
                     jail={this.state.jail}
@@ -657,15 +670,19 @@ export class Game extends Component {
                     dices={this.state.diceSave}
                     rolldices={this.rollDiceHandler}
                     p1IsNext={this.state.p1IsNext}
+                    volume={this.state.volume}
                     />  
                     <Outcheckers 
                     out={this.state.outcheckers}
                     undo={this.undoHandler}
+                    volume={this.state.volume}
                     />
                      </div>
+
                 </div>
                 
                 {this.gameOver()}
+
             </div>           
         )
     }

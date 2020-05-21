@@ -58,9 +58,13 @@ export class Dice extends Component {
     }
 
     playAudio=()=> {
-        const audioEl = document.getElementsByClassName("diceSound")[0];
-        audioEl.play();
+        const audio = new Audio();
+        audio.src = require('../../../sounds/dice.mp3');
+        audio.volume=this.props.volume;
+        audio.play();
+   
       }
+     
 
     componentDidMount(){
         this.playAudio();
@@ -73,11 +77,6 @@ export class Dice extends Component {
         return (
             <div className="dice">
             {this.displayDots()}
-
-            <audio className="diceSound">
-                 <source src={require('../../../sounds/dice.mp3')}></source>
-                </audio>
-
             </div>
         )
     }
