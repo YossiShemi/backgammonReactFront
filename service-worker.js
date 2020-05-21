@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
 importScripts(
-  "/backgammonReactFront/precache-manifest.8b7fe8f1a0ffceba68e6828200b7604a.js"
+  "/backgammonReactFront/precache-manifest.85ad6dafbaf68d2e2a87b3d52fd9fb8d.js"
 );
 
 self.addEventListener('message', (event) => {
