@@ -16,28 +16,28 @@
 .blackLeftup{
     background: linear-gradient(to left bottom, var(--color2) 49%, transparent 50%);
     width: 50px;
-    height: 275px;
+    height: 260px;
     margin-top: auto;
 }
 
 .blackRightup{ 
     background: linear-gradient(to right bottom, var(--color2) 49%, transparent 51%);
     width: 50px;
-    height: 275px;
+    height: 260px;
     margin-top: auto;
 }
 
 .whiteLeftup{ 
     background: linear-gradient(to left bottom, var(--color1) 49%, transparent 50%);
     width: 50px;
-    height: 275px;
+    height: 260px;
     margin-top: auto;
 }
 
 .whiteRightup{ 
     background: linear-gradient(to right bottom, var(--color1) 49%, transparent 51%);
     width: 50px;
-    height: 275px;
+    height: 260px;
     margin-top: auto;
 }
 
@@ -45,28 +45,28 @@
 .blackLeftbottom{ 
     background: linear-gradient(to left top, var(--color2) 49%, transparent 50%);
     width: 50px;
-    height: 275px;
+    height: 260px;
     margin-top: auto;
 }
 
 .blackRightbottom{ 
     background: linear-gradient(to right top, var(--color2) 49%, transparent 51%);
     width: 50px;
-    height: 275px;
+    height: 260px;
     margin-top: auto;
 }
 
 .whiteLeftbottom{ 
     background: linear-gradient(to left top, var(--color1) 49%, transparent 50%);
     width: 50px;
-    height: 275px;
+    height: 260px;
     margin-top: auto;
 }
 
 .whiteRightbottom{ 
     background: linear-gradient(to right top, var(--color1) 49%, transparent 51%);
     width: 50px;
-    height: 275px;
+    height: 260px;
     margin-top: auto;
 }
 
@@ -74,28 +74,28 @@
 .rightBottomRecieve{
     background: linear-gradient(to right top, rgba(11, 184, 11, 0.829) 49%, transparent 51%);
     width: 50px;
-    height: 275px;
+    height: 260px;
     margin-top: auto;
     cursor: pointer;
 }
 .leftBottomRecieve{
     background: linear-gradient(to left top,  rgba(11, 184, 11, 0.829)  49%, transparent 50%);
     width: 50px;
-    height: 275px;
+    height: 260px;
     margin-top: auto;
     cursor: pointer;
 }
 .rightUpRecieve{
     background: linear-gradient(to right bottom,  rgba(11, 184, 11, 0.829) 49%, transparent 51%);
     width: 50px;
-    height: 275px;
+    height: 260px;
     margin-top: auto;
     cursor: pointer;
 }
 .leftUpRecieve{
     background: linear-gradient(to left bottom,  rgba(11, 184, 11, 0.829) 49%, transparent 50%);
     width: 50px;
-    height: 275px;
+    height: 260px;
     margin-top: auto;
     cursor: pointer;
 }

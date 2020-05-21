@@ -86,12 +86,14 @@ export class Board extends Component {
 
                         <span className="rollingInTheDeep">
                         <RollArea
-                                        gameStatus={this.props.gameStatus}
-                                        dices={this.props.dices}
-                                        rolldices={this.props.rolldices}
-                                        p1IsNext={this.props.p1IsNext}
-                                        volume={this.props.volume}
-                                        />
+                            gameStatus={this.props.gameStatus}
+                            dices={this.props.dices}
+                            rolldices={this.props.rolldices}
+                            p1IsNext={this.props.p1IsNext}
+                            volume={this.props.volume}
+                            playerdone={this.props.playerdone}
+                            changePlayer={this.props.changePlayer}
+                        />
                         </span>
             
 

@@ -27,6 +27,7 @@ export class Game extends Component {
         players: { p1: 'Player 1', p2: 'Player 2' },
         gameOver: true,
         volume:1,
+        playerdone:true,
     }
 
 
@@ -183,18 +184,19 @@ export class Game extends Component {
 
     undoHandler = () => {
         
-        if (this.state.currentPosition>0){
+        if (this.state.currentPosition>0 ){
         const history = [...this.state.history];
         const newPosition = this.state.currentPosition - 1;
         const p1IsNext = history[newPosition].p1IsNext;
         const dice = [...history[newPosition].dice];
+        const diceSave=dice;
         const jail = { ...history[newPosition].jail };
         const outcheckers = { ...history[newPosition].outcheckers };
         const movingChecker = false;
 
         console.log('Undo last move');
 
-        const moves = this.calculateCanMove(this.state.history[newPosition].points, dice, p1IsNext, jail);
+        const moves = this.calculateCanMove(history[newPosition].points, dice, p1IsNext, jail);
         const points = moves.points;
         const gameStatus = moves.gameStatus;
         //remove last element from history
@@ -206,10 +208,12 @@ export class Game extends Component {
             currentPosition: newPosition,
             p1IsNext: p1IsNext,
             dice: dice,
+            diceSave:this.state.diceNoMove,
             points: points,
             jail: jail,
             outcheckers: outcheckers,
-            movingChecker: movingChecker
+            movingChecker: movingChecker,
+            playerdone:false
         });
     }
     }
@@ -261,9 +265,11 @@ export class Game extends Component {
         points[7] = { player: 2, checkers: 3 };
         points[5] = { player: 2, checkers: 5 };
         */
-        points[2] = { player: 2, checkers: 1 };
-        points[20] = { player: 1, checkers: 2 };
-    
+       points[5] = { player: 2, checkers: 1 };
+       points[19] = { player: 1, checkers: 2 };
+
+
+
         this.setState({
             gameStatus: gameStatus,
             history: history,
@@ -276,7 +282,8 @@ export class Game extends Component {
             outcheckers: outcheckers,
             movingChecker: movingChecker,
             players: players,
-            gameOver:false
+            gameOver:false,
+            playerdone:true
         });
 
     }
@@ -344,6 +351,7 @@ export class Game extends Component {
             dice: dice,
             diceSave:diceSave,
             p1IsNext: p1IsNext,
+            playerdone:false
         });
      }
     }
@@ -566,18 +574,23 @@ export class Game extends Component {
         for(let point of points){// reset all panels
                 point.canReceive=false;
                 point.canMove=false;}
-                console.log("All false");     
         const moves = this.calculateCanMove(points, dice, p1IsNext, jail);// find new moves
         points = moves.points;
         gameStatus = moves.gameStatus;
-        //Change player if no die
-        if (dice.length === 0 ||gameStatus===50) {
+       
+       
+        //Change player if no moves avaliable
+        if (gameStatus===50) {
             dice[0] = 0;
             p1IsNext = !p1IsNext;
             this.setState(
-               {diceSave:[0]}
+               {diceSave:[0], playerdone:true}
             );
         }  
+        if(dice.length===0){
+            dice[0]=0;
+            this.setState({diceSave:[0]});
+        }
         
 
 
@@ -629,9 +642,22 @@ export class Game extends Component {
 
 
 
+
+    /*New funcions */
     changeVolume=(volume)=>{
         this.setState({volume:volume});
     }
+
+    changePlayer=()=>{
+        console.log("Done");
+
+        this.setState(
+           {dice:[0],diceSave:[0], p1IsNext:!this.state.p1IsNext, playerdone:true,currentPosition:0}
+        );
+        
+    }
+
+
 
 
 
@@ -671,6 +697,8 @@ export class Game extends Component {
                     rolldices={this.rollDiceHandler}
                     p1IsNext={this.state.p1IsNext}
                     volume={this.state.volume}
+                    playerdone={this.state.playerdone}
+                    changePlayer={this.changePlayer}
                     />  
                     <Outcheckers 
                     out={this.state.outcheckers}
