@@ -29,11 +29,11 @@ export class SoundController extends Component {
            <Grid container spacing={2}  style={{marginLeft:'10px'}}>
      
              <Grid item>
-               <VolumeUp />
+               <VolumeUp/>
              </Grid>
      
              <Grid item xs>
-               <Slider value={this.state.value} onChange={this.handleChange} aria-labelledby="continuous-slider" orientation="vertical" style={{height:'150px'}} />
+               <Slider value={this.state.value} onChange={this.handleChange} aria-labelledby="continuous-slider" orientation="vertical" style={{height:'150px'} } />
              </Grid>
      
              <Grid item>

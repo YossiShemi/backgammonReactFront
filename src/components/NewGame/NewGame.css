@@ -75,10 +75,10 @@
    }
    .winner {
     position: absolute;
-    top: 38%;
+    top: 32%;
     right: 0;
     bottom: 0;
-    left: 14%;
+    left: 22%;
     width: 60% ;
     height: 32% ;
     }
