@@ -3,6 +3,8 @@ import './RollArea.css';
 import './dice/Dice';
 import Dice from './dice/Dice';
 import Done from './done/Done';
+import { Bounce } from "react-reveal";
+
 
 export class RollArea extends Component {
  
@@ -23,8 +25,16 @@ export class RollArea extends Component {
             </div>)
 
         if (this.props.dices[0]===0){
-            return <Done changePlayer={this.props.changePlayer}/>
+            return (
+                <Bounce botton duration={1500} distance="20px">
+                <Done changePlayer={this.props.changePlayer}/>
+                </Bounce>
+
+            )
+
+        
         }
+
     }
 }
 

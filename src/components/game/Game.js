@@ -189,18 +189,26 @@ export class Game extends Component {
         const newPosition = this.state.currentPosition - 1;
         const p1IsNext = history[newPosition].p1IsNext;
         const dice = [...history[newPosition].dice];
-        const diceSave=dice;
         const jail = { ...history[newPosition].jail };
         const outcheckers = { ...history[newPosition].outcheckers };
         const movingChecker = false;
 
-        console.log('Undo last move');
+        // Do nor alloe undo after enter from jail
+        const currentPosition=this.state.currentPosition;
+            if(history[currentPosition].jail.player1<history[newPosition].jail.player1 ||
+                history[currentPosition].jail.player2<history[newPosition].jail.player2 ){
+                    alert("Cannot move the checker back to the jail- obligated move !")
+                    return;
+                }
 
         const moves = this.calculateCanMove(history[newPosition].points, dice, p1IsNext, jail);
         const points = moves.points;
         const gameStatus = moves.gameStatus;
+
         //remove last element from history
         history.pop();
+        console.log("new history after Undo: ");
+        console.log(history[history.length-1].points);
 
         this.setState({
             gameStatus: gameStatus,
@@ -247,15 +255,14 @@ export class Game extends Component {
         const dice = [0];
         const diceSave=[0];
         const points = Array(24).fill({ player: false, checkers: 0 });
-        const jail = { player1: 0, player2: 0 };
-        const outcheckers = { player1: 13, player2: 14 };
+        const jail = { player1: 2, player2: 2 };
+        const outcheckers = { player1: 0, player2: 0 };
         const movingChecker = false;
         const players = { p1: "player1", p2: "player2"};
 
-        history.push(this.setHistory(p1IsNext, dice, points, jail, outcheckers));
+        history.push(this.setHistory(p1IsNext, dice, this.getPointsWithoutActions(points), jail, outcheckers));
 
-        //set points
-        /*
+        //set point
         points[0] = { player: 1, checkers: 2 };
         points[11] = { player: 1, checkers: 5 };
         points[16] = { player: 1, checkers: 3 };
@@ -264,10 +271,7 @@ export class Game extends Component {
         points[12] = { player: 2, checkers: 5 };
         points[7] = { player: 2, checkers: 3 };
         points[5] = { player: 2, checkers: 5 };
-        */
-       points[5] = { player: 2, checkers: 1 };
-       points[19] = { player: 1, checkers: 2 };
-
+        
 
 
         this.setState({
@@ -322,11 +326,13 @@ export class Game extends Component {
         history.push(this.setHistory(
             p1IsNext,
             dice,
-            points,
+            this.getPointsWithoutActions(points),
             this.state.jail,
             this.state.outcheckers,
             gameStatus
         ));
+        
+        
 
         //If no moves avaliable
         if (gameStatus===50){
@@ -366,7 +372,7 @@ export class Game extends Component {
        
         else {
 
-            //check if there is checker on gray Bar
+            //check if there is checker in jail
             if ((p1IsNext && jail.player1) ||
                 (!p1IsNext && jail.player2)) {
                 for (let die of dice) {
@@ -413,7 +419,8 @@ export class Game extends Component {
                 }
             }
         }
-       
+        console.log("gameStatus from calculate"+ gameStatus);
+
         return { points: newPoints, gameStatus: gameStatus };
     }
 
@@ -523,6 +530,7 @@ export class Game extends Component {
             else if (movingChecker === 24) { //remove p2 from gray bar
                 jail.player2--;
             }
+
         }
 
 
@@ -577,6 +585,8 @@ export class Game extends Component {
         const moves = this.calculateCanMove(points, dice, p1IsNext, jail);// find new moves
         points = moves.points;
         gameStatus = moves.gameStatus;
+        console.log("gameStatus from recieve"+gameStatus);
+        
        
        
         //Change player if no moves avaliable
@@ -601,7 +611,10 @@ export class Game extends Component {
         //Add this move to the history in order to be able to Undo
         const currentPosition = this.state.currentPosition + 1;
         const history = [...this.state.history];
-        history.push(this.setHistory(p1IsNext, dice, points, jail, outcheckers));
+        history.push(this.setHistory(p1IsNext, dice,this.getPointsWithoutActions(points), jail, outcheckers));
+
+
+
 
 
 
@@ -716,3 +729,6 @@ export class Game extends Component {
     }
 }
 export default Game
+
+
+

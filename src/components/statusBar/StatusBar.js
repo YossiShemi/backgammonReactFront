@@ -38,7 +38,9 @@ export class StatusBar extends Component {
     render() {
         return (
             <div className="statusBar">
-                
+               
+               
+
                 <div className="mainHeader">
                     <div className="barPlayerStatus"> 
                     <div className="barPlayerTitle">Player 1</div>

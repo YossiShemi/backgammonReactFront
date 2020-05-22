@@ -3,19 +3,23 @@
     height: 60px;
     border: 3px white solid;
     border-radius: 50%;
-    background-color: red;
+    background-color: green;
     color: white;
     cursor: pointer;
     margin-left: 14px;
     display: flex;
     justify-content: center;
     align-items: center;
-}
+    }
+
+
 
 .doneText{
     font-weight: bold;
     font-size: 20px;
 }
+
+
 
 
 @media (max-width: 400px){
