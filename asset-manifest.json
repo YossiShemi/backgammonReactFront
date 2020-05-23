@@ -1,17 +1,17 @@
 {
   "files": {
-    "main.css": "/backgammonReactFront/static/css/main.ccd35323.chunk.css",
-    "main.js": "/backgammonReactFront/static/js/main.9fc6a343.chunk.js",
-    "main.js.map": "/backgammonReactFront/static/js/main.9fc6a343.chunk.js.map",
+    "main.css": "/backgammonReactFront/static/css/main.5aa24811.chunk.css",
+    "main.js": "/backgammonReactFront/static/js/main.ecf2ef51.chunk.js",
+    "main.js.map": "/backgammonReactFront/static/js/main.ecf2ef51.chunk.js.map",
     "runtime-main.js": "/backgammonReactFront/static/js/runtime-main.a6474a1a.js",
     "runtime-main.js.map": "/backgammonReactFront/static/js/runtime-main.a6474a1a.js.map",
-    "static/js/2.840872b5.chunk.js": "/backgammonReactFront/static/js/2.840872b5.chunk.js",
-    "static/js/2.840872b5.chunk.js.map": "/backgammonReactFront/static/js/2.840872b5.chunk.js.map",
+    "static/js/2.16da0281.chunk.js": "/backgammonReactFront/static/js/2.16da0281.chunk.js",
+    "static/js/2.16da0281.chunk.js.map": "/backgammonReactFront/static/js/2.16da0281.chunk.js.map",
     "index.html": "/backgammonReactFront/index.html",
-    "precache-manifest.85ad6dafbaf68d2e2a87b3d52fd9fb8d.js": "/backgammonReactFront/precache-manifest.85ad6dafbaf68d2e2a87b3d52fd9fb8d.js",
+    "precache-manifest.21025d55b9ec823601bde753d31436c5.js": "/backgammonReactFront/precache-manifest.21025d55b9ec823601bde753d31436c5.js",
     "service-worker.js": "/backgammonReactFront/service-worker.js",
-    "static/css/main.ccd35323.chunk.css.map": "/backgammonReactFront/static/css/main.ccd35323.chunk.css.map",
-    "static/js/2.840872b5.chunk.js.LICENSE.txt": "/backgammonReactFront/static/js/2.840872b5.chunk.js.LICENSE.txt",
+    "static/css/main.5aa24811.chunk.css.map": "/backgammonReactFront/static/css/main.5aa24811.chunk.css.map",
+    "static/js/2.16da0281.chunk.js.LICENSE.txt": "/backgammonReactFront/static/js/2.16da0281.chunk.js.LICENSE.txt",
     "static/media/dice.mp3": "/backgammonReactFront/static/media/dice.afd53a36.mp3",
     "static/media/outcheckers.mp3": "/backgammonReactFront/static/media/outcheckers.e3b896ba.mp3",
     "static/media/panel.mp3": "/backgammonReactFront/static/media/panel.dec50ff3.mp3",
@@ -21,8 +21,8 @@
   },
   "entrypoints": [
     "static/js/runtime-main.a6474a1a.js",
-    "static/js/2.840872b5.chunk.js",
-    "static/css/main.ccd35323.chunk.css",
-    "static/js/main.9fc6a343.chunk.js"
+    "static/js/2.16da0281.chunk.js",
+    "static/css/main.5aa24811.chunk.css",
+    "static/js/main.ecf2ef51.chunk.js"
   ]
 }
