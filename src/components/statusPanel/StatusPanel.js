@@ -19,8 +19,8 @@ export class StatusPanel extends Component {
             }
          
         if (this.props.gameStatus===50){
-            let player= this.props.p1IsNext? "Player 2 turn": "Player 1 turn";
-            status=`No moves avaliable! --- Dices: (" ${this.props.diceNoMove[0]}, ${this.props.diceNoMove[1]} ") --- ${player}`;
+            let player= this.props.p1IsNext? "Player 2 roll the dices ": "Player 1 roll the dices";
+            status=`\u00A0 No moves avaliable now! \u00A0\u00A0 Dices: (${this.props.diceNoMove[0]},${this.props.diceNoMove[1]}) \u00A0\u00A0 ${player}`;
         }
 
     
@@ -32,7 +32,9 @@ export class StatusPanel extends Component {
     render() {
         return (
             <div className="StatusPanel">
+                <i class="fas fa-dice"></i>
             {this.getGameStatus()} 
+            <i class="fas fa-dice"></i>
           </div>
         )
     }

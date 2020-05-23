@@ -255,7 +255,7 @@ export class Game extends Component {
         const dice = [0];
         const diceSave=[0];
         const points = Array(24).fill({ player: false, checkers: 0 });
-        const jail = { player1: 2, player2: 2 };
+        const jail = { player1: 0, player2: 0 };
         const outcheckers = { player1: 0, player2: 0 };
         const movingChecker = false;
         const players = { p1: "player1", p2: "player2"};
@@ -271,8 +271,8 @@ export class Game extends Component {
         points[12] = { player: 2, checkers: 5 };
         points[7] = { player: 2, checkers: 3 };
         points[5] = { player: 2, checkers: 5 };
-        
 
+     
 
         this.setState({
             gameStatus: gameStatus,
@@ -364,7 +364,8 @@ export class Game extends Component {
 
     //Calculate possible moves return an object with new points and game status
     calculateCanMove = (points, dice, p1IsNext, jail) => {
-
+        console.log("calculateCanMove");
+        
         let newPoints = [...points];
         let gameStatus = 50; //No moves available
         
@@ -419,8 +420,8 @@ export class Game extends Component {
                 }
             }
         }
-        console.log("gameStatus from calculate"+ gameStatus);
-
+        console.log("Moving checker end of calc: "+this.state.movingChecker);
+        
         return { points: newPoints, gameStatus: gameStatus };
     }
 
@@ -496,6 +497,8 @@ export class Game extends Component {
 
     //Receive checker into the point
     receiveCheckerHandler = (die) => {
+        console.log("receiveCheckerHandler ");
+        
         const jail = { ...this.state.jail };
         const outcheckers = this.getoutcheckersWithoutActions(this.state.outcheckers);
         const dice = [...this.state.dice];
@@ -504,11 +507,13 @@ export class Game extends Component {
         let movingChecker = this.getMovingChecker(p1IsNext); //get the moving checker or jail (-1 or 24)
         let gameStatus = 30; //playing
         const destination = p1IsNext ? movingChecker + die : movingChecker - die; // the panel the checker moving to
+        console.log("destination: "+destination+" movingCgckers: "+movingChecker);
+
         //Logging
         if (destination > 23 || destination < 0) {
             console.log('Bearing off Checker');
         } else {
-            console.log('Moving checker to point ' + (p1IsNext ? destination + 1 : 24 - destination));
+            console.log('Moving checker to point ' + (p1IsNext ? destination : 24 - destination));
         }
 
 
@@ -525,7 +530,7 @@ export class Game extends Component {
         //remove from jail
         else { 
             if (movingChecker === -1) {//remove p1 from gray bar
-                jail.player1--;
+                jail.player1--;                
             }
             else if (movingChecker === 24) { //remove p2 from gray bar
                 jail.player2--;
@@ -585,7 +590,6 @@ export class Game extends Component {
         const moves = this.calculateCanMove(points, dice, p1IsNext, jail);// find new moves
         points = moves.points;
         gameStatus = moves.gameStatus;
-        console.log("gameStatus from recieve"+gameStatus);
         
        
        
@@ -645,7 +649,7 @@ export class Game extends Component {
             points: points,
             jail: jail,
             outcheckers: outcheckers,
-            movingChecker: null,
+            movingChecker: false,
         })
 
 
