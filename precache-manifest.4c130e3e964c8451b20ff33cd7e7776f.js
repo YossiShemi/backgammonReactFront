@@ -1,23 +1,23 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "69313705a3bec4cfa848790711ca8227",
+    "revision": "270d5a4ee53c8ed8b4dcedc9636d74e5",
     "url": "/backgammonReactFront/index.html"
   },
   {
-    "revision": "69acb054c5bc68d8a8da",
+    "revision": "ab28dbff803fddda3bd1",
     "url": "/backgammonReactFront/static/css/main.5aa24811.chunk.css"
   },
   {
-    "revision": "fdec99a090cb311f1305",
-    "url": "/backgammonReactFront/static/js/2.16da0281.chunk.js"
+    "revision": "31e62eb16f73d42137ac",
+    "url": "/backgammonReactFront/static/js/2.b10fe231.chunk.js"
   },
   {
     "revision": "1937a0fc6634269e5f47f8181e27fdc7",
-    "url": "/backgammonReactFront/static/js/2.16da0281.chunk.js.LICENSE.txt"
+    "url": "/backgammonReactFront/static/js/2.b10fe231.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "69acb054c5bc68d8a8da",
-    "url": "/backgammonReactFront/static/js/main.ecf2ef51.chunk.js"
+    "revision": "ab28dbff803fddda3bd1",
+    "url": "/backgammonReactFront/static/js/main.9ddb1d8a.chunk.js"
   },
   {
     "revision": "67a8808fc0911b7e9d7e",
