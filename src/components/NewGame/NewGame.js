@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import './NewGame.css';
 import Confetti from './Confetti';
+import Zoom from 'react-reveal/Zoom';
+
 
 export class NewGame extends Component {
 
@@ -39,6 +41,7 @@ export class NewGame extends Component {
     render() {
        if (this.props.gameStatus===80){
         return (
+            <Zoom>
             <div className="newGame" >
             <div className="content">
             {this.message()}
@@ -46,23 +49,27 @@ export class NewGame extends Component {
             <div className="startNewGame" onClick={this.props.setupNewGameHandler} >
             Click here to start new game
             </div>
-        </div>);
+            </div>
+            </Zoom>
+
+        );
        }
 
        else{
         return (
             <React.Fragment>
             <Confetti/>
-            <div className="winner" >
+            <Zoom>
+                <div className="winner" >
                 <div className="content">
                 {this.message()}
                 </div>
                 <div className="startNewGame" onClick={this.props.setupNewGameHandler} >
                 Click here to start new game
                 </div>
+                </div>
+            </Zoom>
 
-            
-            </div>
             </React.Fragment>
             
         );}

@@ -8,6 +8,12 @@ import NewGame from '../NewGame/NewGame';
 import Menu from '../Menu';
 import StatusPanel from '../statusPanel/StatusPanel';
 import SoundController from '../soundController/SoundController';
+import Fade from 'react-reveal';
+import Bounce from 'react-reveal/Bounce';
+import Flip from 'react-reveal/Flip';
+
+
+
 
 export class Game extends Component {
   
@@ -687,21 +693,28 @@ export class Game extends Component {
         return (
             <div className="game">
 
+                <Bounce left>
                 <StatusBar
                 points={this.state.points}
                 jail= {this.state.jail}
                 gameStatus= {this.state.gameStatus}
                 p1IsNext={this.state.p1IsNext}
                 />
+                </Bounce>
+                <Bounce right>
                 <Menu/>
+                </Bounce>
 
+            
                 <div>
+                    <Flip top>
                     <StatusPanel
                     gameStatus= {this.state.gameStatus}
                     p1IsNext={this.state.p1IsNext}
                     diceNoMove={this.state.diceNoMove}
                     />
-
+                    </Flip >
+                    <Fade up duration={1500} distance="100px">
                     <div className="gamezone">
                     <SoundController 
                     changeVolume={this.changeVolume}
@@ -723,7 +736,7 @@ export class Game extends Component {
                     volume={this.state.volume}
                     />
                      </div>
-
+                     </Fade>
                 </div>
                 
                 {this.gameOver()}
