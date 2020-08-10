@@ -1,14 +1,14 @@
 {
   "files": {
     "main.css": "/backgammonReactFront/static/css/main.5aa24811.chunk.css",
-    "main.js": "/backgammonReactFront/static/js/main.9ddb1d8a.chunk.js",
-    "main.js.map": "/backgammonReactFront/static/js/main.9ddb1d8a.chunk.js.map",
+    "main.js": "/backgammonReactFront/static/js/main.27775ff5.chunk.js",
+    "main.js.map": "/backgammonReactFront/static/js/main.27775ff5.chunk.js.map",
     "runtime-main.js": "/backgammonReactFront/static/js/runtime-main.a6474a1a.js",
     "runtime-main.js.map": "/backgammonReactFront/static/js/runtime-main.a6474a1a.js.map",
     "static/js/2.b10fe231.chunk.js": "/backgammonReactFront/static/js/2.b10fe231.chunk.js",
     "static/js/2.b10fe231.chunk.js.map": "/backgammonReactFront/static/js/2.b10fe231.chunk.js.map",
     "index.html": "/backgammonReactFront/index.html",
-    "precache-manifest.4c130e3e964c8451b20ff33cd7e7776f.js": "/backgammonReactFront/precache-manifest.4c130e3e964c8451b20ff33cd7e7776f.js",
+    "precache-manifest.8f341441a08bf61793e14391e7b9f5ca.js": "/backgammonReactFront/precache-manifest.8f341441a08bf61793e14391e7b9f5ca.js",
     "service-worker.js": "/backgammonReactFront/service-worker.js",
     "static/css/main.5aa24811.chunk.css.map": "/backgammonReactFront/static/css/main.5aa24811.chunk.css.map",
     "static/js/2.b10fe231.chunk.js.LICENSE.txt": "/backgammonReactFront/static/js/2.b10fe231.chunk.js.LICENSE.txt",
@@ -23,6 +23,6 @@
     "static/js/runtime-main.a6474a1a.js",
     "static/js/2.b10fe231.chunk.js",
     "static/css/main.5aa24811.chunk.css",
-    "static/js/main.9ddb1d8a.chunk.js"
+    "static/js/main.27775ff5.chunk.js"
   ]
 }
