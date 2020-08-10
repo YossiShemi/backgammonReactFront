@@ -33,7 +33,7 @@ export default function BasicButtonGroup() {
   return (
     <div className={classes.root}>
       <ButtonGroup variant="text"aria-label="text primary button group" size="large">
-        <Button  className={classes.buttons} >   <a className={classes.link} href="https://yossishemi.github.io/backgammonWeb/#/"> HomePage</a> </Button>
+        <Button  className={classes.buttons} >   <a className={classes.link} href="https://backgammonwebclient.herokuapp.com/"> HomePage</a> </Button>
         <Button  className={classes.buttons} > <Rules/> </Button>
       </ButtonGroup>
     </div>
